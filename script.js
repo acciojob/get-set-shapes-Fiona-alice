@@ -1,26 +1,49 @@
 //complete this code
 class Rectangle {
 	constructor(width, height) {
-    this._width = width;
-    this._height = height;
+    this.width = width;
+    this.height = height;
   }
 
   get width() {
     return this._width;
   }
 
+  set width(value) {
+    if (value <= 0) {
+      throw new Error("Width must be a positive number");
+    }
+    this._width = value;
+  }
+
   get height() {
     return this._height;
   }
 
+  set height(value) {
+    if (value <= 0) {
+      throw new Error("Height must be a positive number");
+    }
+    this._height = value;
+  }
+
   getArea() {
-    return this._width * this._height;
+    return this.width * this.height;
   }
 }
 
 class Square extends Animal {
 	constructor(side) {
     super(side, side);
+  }
+
+  get side() {
+    return this.width;
+  }
+
+  set side(value) {
+    this.width = value;
+    this.height = value;
   }
 
   getPerimeter() {
